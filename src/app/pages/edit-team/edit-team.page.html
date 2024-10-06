@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar equipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item>
+    <ion-label positon="floating">Nombre de equipo</ion-label>
+    <ion-input clearInput [(ngModel)]="team.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Ciudad de orígen</ion-label>
+    <ion-input clearInput [(ngModel)]="team.city"></ion-input>
+  </ion-item>
+  <!--br *ngIf="team" *ngIf="team">
+  <ion-button href="../edit-cheerleader/edit-cheerleader.page.html">
+    Añadir animadoras
+  </ion-button-->
+  <br>
+  <ion-button (click)="saveTeam()" expand="full">
+    Guardar
+  </ion-button>
+</ion-content>

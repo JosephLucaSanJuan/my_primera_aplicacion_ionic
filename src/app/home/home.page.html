@@ -1,20 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Equipos
     </ion-title>
+    <ion-buttons slot="end" padding>
+      <ion-button (click)="goEditTeam()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!--ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header-->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let t of (teams | async)" button>
+        <ion-label (click)="seeTeam(t.id)">{{ t.name }}</ion-label>
+        <ion-icon name="pencil" (click)="goEditTeam(t.id)"></ion-icon>
+        <ion-icon name="blank"></ion-icon>
+        <ion-icon name="trash" (click)="presentAlertConfirm(t)"></ion-icon>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
